@@ -4,8 +4,8 @@ import MainDisplay from "./components/MainDisplay/MainDisplay.js";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <MainDisplay sx={{ position: "fixed", top: "100px" }} />
+      <Header sx={{ display: "block" }} />
+      <MainDisplay sx={{ display: "block", top: "120px" }} />
     </div>
   );
 }

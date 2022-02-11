@@ -9,12 +9,21 @@ import Box from "@mui/material/Box";
 
 const MainDisplay = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        backgroundColor: "lightMode.background",
+        display: "block",
+        width: "100%",
+        position: "relative",
+        top: "16.5px",
+      }}
+    >
       <Grid direction="row" container spacing={2}>
-        <Grid item xs={12} md="4">
+        <Grid item xs={12} md={4}>
           <InputField />
         </Grid>
-        <Grid item xs="6" md="4">
+        <Grid item xs={6} md={4}>
           <FilterDropdown />
         </Grid>
         <Grid

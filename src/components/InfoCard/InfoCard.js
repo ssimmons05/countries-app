@@ -15,6 +15,7 @@ export default function InfoCard({
   return (
     <Card
       sx={{
+        color: "lightMode.text",
         margin: "30px",
         width: 345,
         boxShadow: "8",
@@ -33,7 +34,7 @@ export default function InfoCard({
           <Typography gutterBottom variant="h5" component="div">
             {country}
           </Typography>
-          <Typography variant="body2" color="text.primary">
+          <Typography variant="body2" color="lightMode.text">
             <ul sx={{ listStyleType: "none" }}>
               <li>Region: {region}</li>
               <li>Population: {population}</li>

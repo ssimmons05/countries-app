@@ -7,12 +7,14 @@ import Typography from "@mui/material/Typography";
 const Header = () => {
   return (
     <Box
+      color="lightMode.text"
       sx={{
+        display: "block",
         bgcolor: "#cfe8fc",
         height: "10vh",
-        width: "100vw",
-        // position: "fixed",
+        width: "100%",
         top: "0",
+        border: "4px lightblue solid",
       }}
     >
       <Box>
