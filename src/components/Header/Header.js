@@ -11,7 +11,7 @@ const Header = () => {
         bgcolor: "#cfe8fc",
         height: "10vh",
         width: "100vw",
-        position: "fixed",
+        // position: "fixed",
         top: "0",
       }}
     >
@@ -27,7 +27,7 @@ const Header = () => {
             maxHeight: { xs: 40, md: 40 },
             maxWidth: { xs: 60, md: 60 },
           }}
-          alt="Thumbnail of countries flags."
+          alt="Photo of scenic landscape."
           src="https://storeys.com/wp-content/uploads/2021/02/tom-gainor-737280-unsplash-e1547754272802.jpg"
         />
         <Typography variant="h6" sx={{ display: "inline", margin: "0 30px" }}>
@@ -36,7 +36,8 @@ const Header = () => {
       </Box>
       <Button
         variant="contained"
-        sx={{ position: "absolute", right: "25px", top: "12px" }}
+        size="small"
+        sx={{ position: "absolute", right: "25px", top: "25px" }}
       >
         Dark Mode
       </Button>
