@@ -39,7 +39,7 @@ const Header = () => {
       <Button
         variant="contained"
         size="small"
-        sx={{ position: "absolute", right: "25px", top: "25px" }}
+        sx={{ position: "absolute", right: "25px", top: "15px" }}
       >
         Dark Mode
       </Button>

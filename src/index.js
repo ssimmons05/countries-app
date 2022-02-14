@@ -5,20 +5,6 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NunitoSans from "../src/fonts/Nunito_Sans/NunitoSans-SemiBold.ttf";
 import CssBaseline from "@mui/material/CssBaseline";
 
-const nunitoSans = {
-  fontFamily: "NunitoSans",
-  fontStyle: "semi-bold",
-  fontDisplay: "swap",
-  fontWeight: "600",
-  src: `
-      local('NunitoSans'),
-      local('NunitoSans-SemiBold'),
-      url(${NunitoSans}) format('ttf')
-    `,
-  unicodeRange:
-    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
-};
-
 const theme = createTheme({
   palette: {
     lightMode: {
@@ -35,26 +21,38 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ['"Open Sans"', "NunitoSans", "Roboto"].join(","),
+    fontFamily: ["NunitoSans", "Arial", "Roboto"].join(","),
   },
-  overrides: {
+  components: {
     MuiCssBaseline: {
-      "@global": {
-        "@font-face": [nunitoSans],
-      },
+      overrides: `
+        @font-face {
+        fontFamily: "NunitoSans",
+        fontStyle: "semi-bold",
+        fontDisplay: "swap",
+        fontWeight: "600",
+        src: 
+            local('NunitoSans'),
+            local('NunitoSans-SemiBold'),
+            url(${NunitoSans}) format('ttf')
+          ,
+        unicodeRange:
+          "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF",
+  }
+   `,
     },
-
-    // subtitle1: {
-    //   fontSize: 12,
-    // },
-    // body1: {
-    //   fontWeight: 500,
-    // },
-    // button: {
-    //   fontStyle: "italic",
-    // },
   },
 });
+
+// subtitle1: {
+//   fontSize: 12,
+// },
+// body1: {
+//   fontWeight: 500,
+// },
+// button: {
+// fontStyle: "italic",
+// },
 
 ReactDOM.render(
   <React.StrictMode>
