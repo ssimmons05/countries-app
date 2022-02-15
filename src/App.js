@@ -1,13 +1,17 @@
-import Header from "./components/Header/Header.js";
-import MainDisplay from "./components/MainDisplay/MainDisplay.js";
-import DetailsPage from "./components/DetailsPage/DetailsPage.js";
+import React from "react";
+import Home from "./pages/Home/Home.js";
+import DetailsPage from "./pages/DetailsPage/DetailsPage.js";
+import { Route, Switch } from "react-router-dom";
+import Error from "./pages/Error.js";
 
 function App() {
   return (
     <div className="App">
-      {/* <Header sx={{ display: "block" }} /> */}
-      {/* <MainDisplay sx={{ display: "block", top: "120px" }} /> */}
-      <DetailsPage />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/details" component={DetailsPage} />
+        <Route component={Error} />
+      </Switch>
     </div>
   );
 }

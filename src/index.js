@@ -4,6 +4,7 @@ import App from "./App";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NunitoSans from "../src/fonts/Nunito_Sans/NunitoSans-SemiBold.ttf";
 import CssBaseline from "@mui/material/CssBaseline";
+import { BrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -20,8 +21,20 @@ const theme = createTheme({
       text: "hsl(0,0%,100%)",
     },
   },
+
   typography: {
     fontFamily: ["NunitoSans", "Arial", "Roboto"].join(","),
+    h4: {
+      // backgroundColor: "red",
+      // color: "green",
+      fontStyle: "italic",
+    },
+    button: {
+      fontStyle: "italic",
+    },
+    href: {
+      textDecoration: "none",
+    },
   },
   components: {
     MuiCssBaseline: {
@@ -58,7 +71,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

@@ -18,7 +18,12 @@ export default function FilterDropdown() {
     <div>
       <Button
         endIcon={<ExpandMoreIcon />}
-        sx={{ ml: "10px" }}
+        sx={{
+          ml: "10px",
+          position: "absolute",
+          right: "20px",
+          marginTop: "25px",
+        }}
         variant="contained"
         // id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
