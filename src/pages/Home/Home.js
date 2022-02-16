@@ -13,14 +13,14 @@ const Home = () => {
     fetch("https://restcountries.com/v2/all")
       .then((response) => response.json())
       .then((data) => {
+        setData(data);
+        // if (!data) {
+        // console.log("Error - No data!");
+        // } else {
         // setData(data);
-        if (!data) {
-          // console.log("Error - No data!");
-        } else {
-          setData(data);
-          // console.log(data);
-          // console.log(data[0].name);
-        }
+        // console.log(data);
+        // console.log(data[0].name);
+        // }
       });
   }
 
@@ -56,7 +56,7 @@ const Home = () => {
             justifyContent="center"
             item
           >
-            console.log(data)
+            {console.log(data)}
             {data.map((info) => (
               <InfoCard
                 country={info.name}
@@ -67,11 +67,11 @@ const Home = () => {
               />
             ))}
             {/* <InfoCard
-            country={data[0].name}
-            image={data[0].flag}
-            region={data[0].region}
-            population={data[0].population}
-            capital={data[0].capital}
+              country={data[0].name}
+              image={data[0].flag}
+              region={data[0].region}
+              population={data[0].population}
+              capital={data[0].capital}
             />
             <InfoCard
               country="Mexico"
