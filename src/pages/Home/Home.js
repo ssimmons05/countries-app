@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import FilterDropdown from "../../components/FilterDropdown/FilterDropdown.js";
 import InputField from "../../components/InputField/InputField.js";
 import InfoCard from "../../components/InfoCard/InfoCard.js";
@@ -7,6 +7,27 @@ import Box from "@mui/material/Box";
 import Header from "../../components/Header/Header.js";
 
 const Home = () => {
+  const [data, setData] = useState(null);
+
+  function getData() {
+    fetch("https://restcountries.com/v2/all")
+      .then((response) => response.json())
+      .then((data) => {
+        // setData(data);
+        if (!data) {
+          // console.log("Error - No data!");
+        } else {
+          setData(data);
+          // console.log(data);
+          // console.log(data[0].name);
+        }
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <>
       <Header />
@@ -35,12 +56,22 @@ const Home = () => {
             justifyContent="center"
             item
           >
-            <InfoCard
-              country="Canada"
-              image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdMbXkS_AiJM5GpN83X0hSNuoK71J9MUAIIg&usqp=CAU"
-              region="North America"
-              population="38 million"
-              capital="Ottowa"
+            console.log(data)
+            {data.map((info) => (
+              <InfoCard
+                country={info.name}
+                image={info.flag}
+                region={info.region}
+                population={info.population}
+                capital={info.capital}
+              />
+            ))}
+            {/* <InfoCard
+            country={data[0].name}
+            image={data[0].flag}
+            region={data[0].region}
+            population={data[0].population}
+            capital={data[0].capital}
             />
             <InfoCard
               country="Mexico"
@@ -62,7 +93,7 @@ const Home = () => {
               region="Europe"
               population="67 million"
               capital="Paris"
-            />
+            /> */}
           </Grid>
         </Grid>
       </Box>

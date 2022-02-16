@@ -1,17 +1,18 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 
-// const inputStyle = {
-//   fontFamily: "Times",
-//   // fontSize: 18.9px
-//   color: "red",
-// };
-
 const InputField = () => {
+  // const [value, setValue] = useState("");
+
+  // function handleChange(event) {
+  //   // event.preventDefault;
+  //   setValue(event.target.value);
+  // }
+
   return (
     <Box
       sx={{
@@ -24,11 +25,9 @@ const InputField = () => {
     >
       <Grid container spacing={12}>
         <TextField
-          // style={inputStyle}
-          // currentColor="red"
+          onChange="handleChange()"
           sx={{ color: "primary" }}
           placeholder="Search for a country..."
-          // color="primary"
           focused
           fullWidth
           InputProps={{
