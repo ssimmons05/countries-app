@@ -3,7 +3,9 @@ import BorderCountryButtons from "../BorderCountryButtons/BorderCountryButtons";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 
-const InfoSection = () => {
+const InfoSection = ({ countriesInfo }) => {
+  console.log({ countriesInfo });
+
   return (
     <div>
       <Grid
@@ -30,13 +32,15 @@ const InfoSection = () => {
           }}
         >
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdMbXkS_AiJM5GpN83X0hSNuoK71J9MUAIIg&usqp=CAU"
+            src={countriesInfo[0].flag}
             alt="${}"
             width="90%"
             display="block"
+            border="1.5px solid black"
           />
         </Grid>
         <Grid
+          item
           container
           xs={12}
           md={6}
@@ -53,7 +57,8 @@ const InfoSection = () => {
               top: "-20px",
             }}
           >
-            <h1>Canada</h1>
+            <h1>{countriesInfo[0].name}</h1>
+            {console.log({ countriesInfo })}
           </Box>
           <Box
             sx={{
@@ -64,11 +69,11 @@ const InfoSection = () => {
               alignItems: "start",
             }}
           >
-            <h4>Native Name:</h4>
-            <h4>Population:</h4>
-            <h4>Region:</h4>
-            <h4>Sub Region:</h4>
-            <h4>Capital:</h4>
+            <h4>Native Name: {countriesInfo[0].name}</h4>
+            <h4>Population: {countriesInfo[0].population}</h4>
+            <h4>Region: {countriesInfo[0].region}</h4>
+            <h4>Sub Region: {countriesInfo[0].subregion}</h4>
+            <h4>Capital: {countriesInfo[0].capital}</h4>
           </Box>
           <Box
             sx={{
@@ -79,11 +84,11 @@ const InfoSection = () => {
               alignItems: "start",
             }}
           >
-            <h4>Top Level Domain:</h4>
-            <h4>Currencies:</h4>
-            <h4>Languages:</h4>
+            <h4>Top Level Domain: {countriesInfo[0].topLevelDomain[0]}</h4>
+            <h4>Currencies: {countriesInfo[0].currencies}</h4>
+            <h4>Languages: {countriesInfo[0].languages}</h4>
           </Box>
-          <BorderCountryButtons />
+          <BorderCountryButtons countriesInfo={countriesInfo} />
         </Grid>
       </Grid>
     </div>

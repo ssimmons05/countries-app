@@ -5,13 +5,10 @@ import Grid from "@mui/material/Grid";
 import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 
-const InputField = () => {
-  // const [value, setValue] = useState("");
-
-  // function handleChange(event) {
-  //   // event.preventDefault;
-  //   setValue(event.target.value);
-  // }
+const InputField = ({ setValue }) => {
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
 
   return (
     <Box
@@ -25,7 +22,8 @@ const InputField = () => {
     >
       <Grid container spacing={12}>
         <TextField
-          onChange="handleChange()"
+          // onKeyPress={getCountry()}
+          onChange={handleChange}
           sx={{ color: "primary" }}
           placeholder="Search for a country..."
           focused

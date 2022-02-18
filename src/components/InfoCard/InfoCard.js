@@ -30,7 +30,7 @@ export default function InfoCard({
             component="img"
             height="180"
             image={image}
-            alt="photo of Canadian wilderness"
+            alt={`{"flag of" ${country}`}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">

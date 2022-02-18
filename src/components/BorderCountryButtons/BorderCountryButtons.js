@@ -4,7 +4,7 @@ import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 
-const BorderCountryButtons = () => {
+const BorderCountryButtons = ({ countriesInfo }) => {
   return (
     <div>
       <Grid container marginTop="-30px;">
@@ -24,7 +24,7 @@ const BorderCountryButtons = () => {
                 backgroundColor: "blue",
               }}
             >
-              Random Country
+              {countriesInfo[0].borders[0]}
             </Button>
           </Link>
         </Box>
