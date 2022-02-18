@@ -7,6 +7,8 @@ import BackButton from "../../components/BackButton/BackButton.js";
 const DetailsPage = ({ countriesInfo }) => {
   return (
     <>
+      {console.log(countriesInfo)}
+
       <Header />
       <Box margin="30px 0 0 50px">
         <BackButton />

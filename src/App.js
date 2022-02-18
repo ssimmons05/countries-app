@@ -6,6 +6,7 @@ import Error from "./pages/Error.js";
 
 function App() {
   const [countriesInfo, setCountriesInfo] = useState([]);
+  console.log(countriesInfo);
 
   return (
     <div className="App">
@@ -16,7 +17,7 @@ function App() {
             countriesInfo={countriesInfo}
           />
         </Route>
-        <Route path="/details" component={DetailsPage}>
+        <Route exact path="/details" component={DetailsPage}>
           <DetailsPage countriesInfo={countriesInfo} />
         </Route>
         <Route component={Error} />

@@ -7,19 +7,6 @@ import Box from "@mui/material/Box";
 import Header from "../../components/Header/Header.js";
 
 const Home = ({ setCountriesInfo, countriesInfo }) => {
-  // function getData() {
-  //   fetch("https://restcountries.com/v2/all")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setData(data);
-  //       // if (data === null) {
-  //       //   console.log("Error - No data!");
-  //       // } else {
-  //       //   setData(data);
-  //       console.log(data);
-  //       //   console.log(data[0].name);
-  //     });
-  // }
   const [value, setValue] = useState("");
 
   function getData() {
@@ -35,6 +22,22 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
     getData();
   }, []);
   console.log(value);
+
+  const searchCountries = () => {
+    console.log(countriesInfo, value);
+    const filteredCountries = countriesInfo.filter((info) =>
+      info.name.toLowerCase().includes(value.toLowerCase())
+    );
+    return filteredCountries.map((info) => (
+      <InfoCard
+        country={info.name}
+        image={info.flag}
+        region={info.region}
+        population={info.population}
+        capital={info.capital}
+      />
+    ));
+  };
 
   return (
     <>
@@ -65,8 +68,9 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
             item
           >
             {!value
-              ? countriesInfo.map((info) => (
+              ? countriesInfo.map((info, index) => (
                   <InfoCard
+                    key={index}
                     country={info.name}
                     image={info.flag}
                     region={info.region}
@@ -74,11 +78,7 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
                     capital={info.capital}
                   />
                 ))
-              : countriesInfo.filter((info) =>
-                  info.name
-                    .includes(value)
-                    .map((filteredInfo) => <li>{filteredInfo}</li>)
-                )}
+              : searchCountries(countriesInfo, value)}
           </Grid>
         </Grid>
       </Box>
