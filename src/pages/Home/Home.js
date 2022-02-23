@@ -8,6 +8,7 @@ import Header from "../../components/Header/Header.js";
 
 const Home = ({ setCountriesInfo, countriesInfo }) => {
   const [value, setValue] = useState("");
+  const [regionChoice, setRegionChoice] = useState("");
 
   function getData() {
     fetch("https://restcountries.com/v2/all")
@@ -23,21 +24,69 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
   }, []);
   console.log(value);
 
-  const searchCountries = () => {
-    console.log(countriesInfo, value);
-    const filteredCountries = countriesInfo.filter((info) =>
-      info.name.toLowerCase().includes(value.toLowerCase())
-    );
-    return filteredCountries.map((info) => (
+  const displayAll = () => {
+    console.log(countriesInfo);
+
+    return countriesInfo.map((info, index) => (
       <InfoCard
+        key={index}
         country={info.name}
         image={info.flag}
         region={info.region}
         population={info.population}
         capital={info.capital}
+        borders={info.borders}
       />
     ));
   };
+
+  const searchCountries = () => {
+    console.log(countriesInfo, value);
+    const filteredCountries = countriesInfo.filter((info) =>
+      info.name.toLowerCase().includes(value.toLowerCase())
+    );
+    return filteredCountries.map((info, index) => (
+      <InfoCard
+        key={index}
+        country={info.name}
+        image={info.flag}
+        region={info.region}
+        population={info.population}
+        capital={info.capital}
+        borders={info.borders}
+      />
+    ));
+  };
+
+  const chooseRegion = () => {
+    const filteredRegions = countriesInfo.filter((info) =>
+      info.region.toLowerCase().includes(regionChoice.toLowerCase())
+    );
+    console.log(regionChoice);
+    console.log(filteredRegions);
+
+    return filteredRegions.map((info, index) => (
+      <InfoCard
+        key={index}
+        country={info.name}
+        image={info.flag}
+        region={info.region}
+        population={info.population}
+        capital={info.capital}
+        borders={info.borders}
+      />
+    ));
+  };
+
+  let display;
+  if (!value && !regionChoice) {
+    display = displayAll(countriesInfo);
+    console.log(countriesInfo);
+  } else if (regionChoice) {
+    display = chooseRegion(regionChoice);
+  } else {
+    display = searchCountries(countriesInfo, value);
+  }
 
   return (
     <>
@@ -57,7 +106,10 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
             <InputField setValue={setValue} />
           </Grid>
           <Grid item xs={6} md={4}>
-            <FilterDropdown />
+            <FilterDropdown
+              countriesInfo={countriesInfo}
+              setRegionChoice={setRegionChoice}
+            />
           </Grid>
           <Grid
             container
@@ -67,18 +119,11 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
             justifyContent="center"
             item
           >
-            {!value
-              ? countriesInfo.map((info, index) => (
-                  <InfoCard
-                    key={index}
-                    country={info.name}
-                    image={info.flag}
-                    region={info.region}
-                    population={info.population}
-                    capital={info.capital}
-                  />
-                ))
-              : searchCountries(countriesInfo, value)}
+            {display}
+            {/* {if (!value && !regionChoice)
+            
+            else if (regionChoice) {chooseRegion(regionChoice)} else{
+            searchCountries(countriesInfo, value)} */}
           </Grid>
         </Grid>
       </Box>

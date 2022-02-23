@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -6,20 +6,14 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function InfoCard({
-  country,
-  image,
-  region,
-  population,
-  capital,
-}) {
+const InfoCard = ({ country, image, region, population, capital }) => {
   return (
     <Link to="/details" sx={{ textDecoration: "typography.a" }}>
       <Card
         sx={{
           color: "lightMode.text",
           margin: "30px",
-          width: 345,
+          width: "20vw",
           boxShadow: "8",
           border: "2px solid gray",
         }}
@@ -48,4 +42,6 @@ export default function InfoCard({
       </Card>
     </Link>
   );
-}
+};
+
+export default InfoCard;
