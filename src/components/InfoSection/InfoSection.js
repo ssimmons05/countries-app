@@ -3,8 +3,9 @@ import BorderCountryButtons from "../BorderCountryButtons/BorderCountryButtons";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 
-const InfoSection = ({ countriesInfo }) => {
+const InfoSection = ({ countriesInfo, key, country }) => {
   console.log({ countriesInfo });
+  console.log({ country });
 
   return (
     <div>
@@ -32,7 +33,7 @@ const InfoSection = ({ countriesInfo }) => {
           }}
         >
           <img
-            src={countriesInfo[0].flag}
+            src={countriesInfo.flag}
             alt="${}"
             width="90%"
             display="block"
@@ -57,8 +58,8 @@ const InfoSection = ({ countriesInfo }) => {
               top: "-20px",
             }}
           >
-            <h1>{countriesInfo[0].name}</h1>
-            {console.log({ countriesInfo })}
+            <h1>{country}</h1>
+            {console.log({ country })}
           </Box>
           <Box
             sx={{
@@ -69,11 +70,11 @@ const InfoSection = ({ countriesInfo }) => {
               alignItems: "start",
             }}
           >
-            <h4>Native Name: {countriesInfo[0].name}</h4>
-            <h4>Population: {countriesInfo[0].population}</h4>
-            <h4>Region: {countriesInfo[0].region}</h4>
-            <h4>Sub Region: {countriesInfo[0].subregion}</h4>
-            <h4>Capital: {countriesInfo[0].capital}</h4>
+            <h4>Native Name: {countriesInfo.name}</h4>
+            <h4>Population: {countriesInfo.population}</h4>
+            <h4>Region: {countriesInfo.region}</h4>
+            <h4>Sub Region: {countriesInfo.subregion}</h4>
+            <h4>Capital: {countriesInfo.capital}</h4>
           </Box>
           <Box
             sx={{
@@ -84,9 +85,9 @@ const InfoSection = ({ countriesInfo }) => {
               alignItems: "start",
             }}
           >
-            <h4>Top Level Domain: {countriesInfo[0].topLevelDomain[0]}</h4>
-            <h4>Currencies: {countriesInfo[0].currencies}</h4>
-            <h4>Languages: {countriesInfo[0].languages}</h4>
+            {/* <h4>Top Level Domain: {countriesInfo.topLevelDomain[0]}</h4>
+            <h4>Currencies: {countriesInfo.currencies}</h4>
+            <h4>Languages: {countriesInfo.languages}</h4> */}
           </Box>
           <BorderCountryButtons countriesInfo={countriesInfo} />
         </Grid>

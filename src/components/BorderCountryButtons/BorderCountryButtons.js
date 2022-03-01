@@ -4,7 +4,7 @@ import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 
-const BorderCountryButtons = ({ countriesInfo }) => {
+const BorderCountryButtons = ({ countriesInfo, key, borders }) => {
   return (
     <div>
       <Grid container marginTop="-30px;">
@@ -18,6 +18,7 @@ const BorderCountryButtons = ({ countriesInfo }) => {
         </Box>
         <Box sx={{ position: "relative", padding: "15px 0 0 10px" }}>
           <Link to="/details">
+            {/* {countriesInfo.map((info) => ( */}
             <Button
               variant="contained"
               sx={{
@@ -26,6 +27,7 @@ const BorderCountryButtons = ({ countriesInfo }) => {
             >
               {countriesInfo[0].borders[0]}
             </Button>
+            {/* ))} */}
           </Link>
         </Box>
       </Grid>

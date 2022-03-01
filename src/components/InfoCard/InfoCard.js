@@ -6,7 +6,10 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const InfoCard = ({ country, image, region, population, capital }) => {
+const InfoCard = ({ country, image, region, population, capital, key }) => {
+  console.log(key);
+  console.log(country);
+
   return (
     <Link to="/details" sx={{ textDecoration: "typography.a" }}>
       <Card
@@ -24,7 +27,7 @@ const InfoCard = ({ country, image, region, population, capital }) => {
             component="img"
             height="180"
             image={image}
-            alt={`{"flag of" ${country}`}
+            alt={`{"flag of" ${country}}`}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">

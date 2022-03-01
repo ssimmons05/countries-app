@@ -45,9 +45,9 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
     const filteredCountries = countriesInfo.filter((info) =>
       info.name.toLowerCase().includes(value.toLowerCase())
     );
-    return filteredCountries.map((info, index) => (
+    return filteredCountries.map((info) => (
       <InfoCard
-        key={index}
+        key={info.name}
         country={info.name}
         image={info.flag}
         region={info.region}
@@ -81,7 +81,6 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
   let display;
   if (!value && !regionChoice) {
     display = displayAll(countriesInfo);
-    console.log(countriesInfo);
   } else if (regionChoice) {
     display = chooseRegion(regionChoice);
   } else {
@@ -120,10 +119,6 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
             item
           >
             {display}
-            {/* {if (!value && !regionChoice)
-            
-            else if (regionChoice) {chooseRegion(regionChoice)} else{
-            searchCountries(countriesInfo, value)} */}
           </Grid>
         </Grid>
       </Box>
