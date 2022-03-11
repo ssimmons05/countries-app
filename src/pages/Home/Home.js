@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Header from "../../components/Header/Header.js";
 
-const Home = ({ setCountriesInfo, countriesInfo }) => {
+const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
   const [value, setValue] = useState("");
   const [regionChoice, setRegionChoice] = useState("");
 
@@ -25,11 +25,10 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
   console.log(value);
 
   const displayAll = () => {
-    console.log(countriesInfo);
-
     return countriesInfo.map((info, index) => (
       <InfoCard
         key={index}
+        id={index}
         country={info.name}
         image={info.flag}
         region={info.region}
@@ -45,9 +44,10 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
     const filteredCountries = countriesInfo.filter((info) =>
       info.name.toLowerCase().includes(value.toLowerCase())
     );
-    return filteredCountries.map((info) => (
+    return filteredCountries.map((info, index) => (
       <InfoCard
         key={info.name}
+        id={index}
         country={info.name}
         image={info.flag}
         region={info.region}
@@ -68,6 +68,7 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
     return filteredRegions.map((info, index) => (
       <InfoCard
         key={index}
+        id={index}
         country={info.name}
         image={info.flag}
         region={info.region}
@@ -89,11 +90,10 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
 
   return (
     <>
-      <Header />
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <Box
         sx={{
           flexGrow: 1,
-          backgroundColor: "lightMode.background",
           display: "block",
           width: "100%",
           position: "relative",
@@ -108,12 +108,12 @@ const Home = ({ setCountriesInfo, countriesInfo }) => {
             <FilterDropdown
               countriesInfo={countriesInfo}
               setRegionChoice={setRegionChoice}
+              regionChoice={regionChoice}
             />
           </Grid>
           <Grid
             container
             spacing={1}
-            // columns={4}
             direction="row"
             justifyContent="center"
             item

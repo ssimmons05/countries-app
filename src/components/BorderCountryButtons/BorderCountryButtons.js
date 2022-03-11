@@ -4,10 +4,10 @@ import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 
-const BorderCountryButtons = ({ countriesInfo, key, borders }) => {
+const BorderCountryButtons = ({ countriesInfo, id, borders }) => {
   return (
     <div>
-      <Grid container marginTop="-30px;">
+      <Grid container marginTop="-30px">
         <Box>
           <h4
             display="inline"

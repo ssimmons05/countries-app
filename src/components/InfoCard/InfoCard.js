@@ -6,12 +6,15 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const InfoCard = ({ country, image, region, population, capital, key }) => {
-  console.log(key);
-  console.log(country);
+const InfoCard = ({ country, image, region, population, capital, id }) => {
+  console.log(id);
+  console.log(region);
 
   return (
-    <Link to="/details" sx={{ textDecoration: "typography.a" }}>
+    <Link
+      to={`/details?country=${country}`}
+      sx={{ textDecoration: "typography.a" }}
+    >
       <Card
         sx={{
           color: "lightMode.text",

@@ -22,7 +22,6 @@ const InputField = ({ setValue }) => {
     >
       <Grid container spacing={12}>
         <TextField
-          // onKeyPress={getCountry()}
           onChange={handleChange}
           sx={{ color: "primary" }}
           placeholder="Search for a country..."

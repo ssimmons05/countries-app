@@ -2,29 +2,45 @@ import React, { useState } from "react";
 import Home from "./pages/Home/Home.js";
 import DetailsPage from "./pages/DetailsPage/DetailsPage.js";
 import { Route, Switch } from "react-router-dom";
-import Error from "./pages/Error.js";
+import Error from "./pages/ErrorPage/Error.js";
+import CssBaseline from "@mui/material/CssBaseline";
 
-function App() {
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const App = () => {
   const [countriesInfo, setCountriesInfo] = useState([]);
-  // const [setCountry, country] = useState([countriesInfo[i].name]);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? "dark" : "light",
+    },
+    typography: {
+      fontFamily: ["NunitoSans", "Arial", "Roboto"].join(","),
+    },
+  });
+
   console.log(countriesInfo);
 
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Switch>
-        <Route exact path="/" component={Home}>
+        <Route exact path="/">
           <Home
             setCountriesInfo={setCountriesInfo}
             countriesInfo={countriesInfo}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
           />
         </Route>
-        <Route path="/details" component={DetailsPage}>
-          <DetailsPage countriesInfo={countriesInfo} />
-        </Route>
+        <Route exact path="/details/:country" />
+        {/* <DetailsPage countriesInfo={countriesInfo} id={id} /> */}
+        {/* </Route> */}
         <Route component={Error} />
       </Switch>
-    </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;

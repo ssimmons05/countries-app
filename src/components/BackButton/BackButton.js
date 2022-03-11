@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { Link } from "react-router-dom";
 
-export default function BackButton() {
+const BackButton = () => {
   return (
     <Link to="/">
       <Button
@@ -15,4 +15,6 @@ export default function BackButton() {
       </Button>
     </Link>
   );
-}
+};
+
+export default BackButton;

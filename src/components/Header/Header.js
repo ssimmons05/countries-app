@@ -1,16 +1,13 @@
-import * as React from "react";
+import React from "react";
 import Button from "@mui/material/Button";
-// import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const Header = () => {
+const Header = ({ darkMode, setDarkMode }) => {
   return (
     <Box
-      color="lightMode.text"
       sx={{
         display: "block",
-        bgcolor: "#cfe8fc",
         height: "10vh",
         width: "100%",
         top: "0",
@@ -37,11 +34,13 @@ const Header = () => {
         </Typography>
       </Box>
       <Button
+        checked={darkMode}
+        onClick={() => setDarkMode(!darkMode)}
         variant="contained"
         size="small"
         sx={{ position: "absolute", right: "25px", top: "15px" }}
       >
-        Dark Mode
+        {darkMode ? "Light Mode" : "Dark Mode"}
       </Button>
     </Box>
   );
