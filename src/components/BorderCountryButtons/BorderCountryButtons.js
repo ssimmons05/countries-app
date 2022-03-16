@@ -17,16 +17,9 @@ const BorderCountryButtons = ({ countriesInfo, id, borders }) => {
           </h4>
         </Box>
         <Box sx={{ position: "relative", padding: "15px 0 0 10px" }}>
-          <Link to="/details">
-            {/* {countriesInfo.map((info) => ( */}
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "blue",
-              }}
-            >
-              {countriesInfo[0].borders[0]}
-            </Button>
+          <Link to={`/details?country=${countriesInfo}`}>
+            {/* {countriesInfo.map((info.borders) => ( */}
+            <Button variant="contained">{countriesInfo[0].borders[0]}</Button>
             {/* ))} */}
           </Link>
         </Box>

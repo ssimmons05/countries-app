@@ -6,11 +6,7 @@ import { Link } from "react-router-dom";
 const BackButton = () => {
   return (
     <Link to="/">
-      <Button
-        variant="contained"
-        startIcon={<ArrowBackIosNewIcon />}
-        sx={{ backgroundColor: "blue" }}
-      >
+      <Button variant="contained" startIcon={<ArrowBackIosNewIcon />}>
         Back
       </Button>
     </Link>

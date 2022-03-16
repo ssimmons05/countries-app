@@ -15,7 +15,6 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
       .then((res) => res.json())
       .then((data) => {
         setCountriesInfo(data);
-        console.log(data);
       });
   }
 
@@ -40,7 +39,6 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
   };
 
   const searchCountries = () => {
-    console.log(countriesInfo, value);
     const filteredCountries = countriesInfo.filter((info) =>
       info.name.toLowerCase().includes(value.toLowerCase())
     );
@@ -62,8 +60,6 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
     const filteredRegions = countriesInfo.filter((info) =>
       info.region.toLowerCase().includes(regionChoice.toLowerCase())
     );
-    console.log(regionChoice);
-    console.log(filteredRegions);
 
     return filteredRegions.map((info, index) => (
       <InfoCard

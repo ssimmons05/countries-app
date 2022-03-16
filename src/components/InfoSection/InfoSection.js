@@ -47,7 +47,6 @@ const InfoSection = ({ countriesInfo, country }) => {
           }}
         >
           <h1>{countriesInfo[0].name}</h1>
-          {console.log({ country })}
         </Box>
         <Box
           sx={{
@@ -71,7 +70,7 @@ const InfoSection = ({ countriesInfo, country }) => {
             alignItems: "start",
           }}
         ></Box>
-        <BorderCountryButtons countriesInfo={countriesInfo} />
+        <BorderCountryButtons countriesInfo={countriesInfo} country={country} />
       </Grid>
     </Grid>
   );

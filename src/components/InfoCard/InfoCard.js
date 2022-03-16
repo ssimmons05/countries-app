@@ -7,16 +7,14 @@ import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const InfoCard = ({ country, image, region, population, capital, id }) => {
-  console.log(id);
-  console.log(region);
-
   return (
     <Link
       to={`/details?country=${country}`}
-      sx={{ textDecoration: "typography.a" }}
+      // sx={{ textDecoration: "typography.a" }}
     >
       <Card
         sx={{
+          key: { id },
           color: "lightMode.text",
           margin: "30px",
           width: "20vw",

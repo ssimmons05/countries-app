@@ -34,9 +34,13 @@ const App = () => {
             setDarkMode={setDarkMode}
           />
         </Route>
-        <Route exact path="/details/:country" />
-        {/* <DetailsPage countriesInfo={countriesInfo} id={id} /> */}
-        {/* </Route> */}
+        <Route exact path="/:country">
+          <DetailsPage
+            countriesInfo={countriesInfo}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        </Route>
         <Route component={Error} />
       </Switch>
     </ThemeProvider>

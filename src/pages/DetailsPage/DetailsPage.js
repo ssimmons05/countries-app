@@ -4,12 +4,10 @@ import Box from "@mui/material/Box";
 import InfoSection from "../../components/InfoSection/InfoSection.js";
 import BackButton from "../../components/BackButton/BackButton.js";
 
-const DetailsPage = ({ countriesInfo }) => {
+const DetailsPage = ({ countriesInfo, darkMode, setDarkMode }) => {
   return (
     <>
-      {console.log(countriesInfo)}
-
-      <Header />
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <Box margin="30px 0 0 50px">
         <BackButton />
       </Box>
