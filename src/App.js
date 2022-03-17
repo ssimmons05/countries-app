@@ -6,6 +6,7 @@ import Error from "./pages/ErrorPage/Error.js";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { NoEncryption } from "@mui/icons-material";
 
 const App = () => {
   const [countriesInfo, setCountriesInfo] = useState([]);

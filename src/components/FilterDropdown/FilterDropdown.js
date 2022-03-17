@@ -50,7 +50,7 @@ const FilterDropdown = ({ countriesInfo, setRegionChoice, regionChoice }) => {
         }}
       >
         {filteredRegions.map((info, index) => (
-          <MenuItem onClick={handleClose} id={index} name={info.region}>
+          <MenuItem onClick={handleClose} key={index} name={info.region}>
             {info.region}
           </MenuItem>
         ))}

@@ -2,9 +2,11 @@ import React from "react";
 import BorderCountryButtons from "../BorderCountryButtons/BorderCountryButtons";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { useLocation } from "react-router-dom";
 
-const InfoSection = ({ countriesInfo, country }) => {
-  console.log(country);
+const InfoSection = () => {
+  let location = useLocation();
+  console.log(location);
 
   return (
     <Grid
@@ -29,7 +31,7 @@ const InfoSection = ({ countriesInfo, country }) => {
         }}
       >
         <img
-          src={countriesInfo[0].flag}
+          src={location.state.image}
           alt="${}"
           width="90%"
           display="block"
@@ -46,7 +48,7 @@ const InfoSection = ({ countriesInfo, country }) => {
             top: "-20px",
           }}
         >
-          <h1>{countriesInfo[0].name}</h1>
+          <h1>{location.state.country}</h1>
         </Box>
         <Box
           sx={{
@@ -56,11 +58,11 @@ const InfoSection = ({ countriesInfo, country }) => {
             alignItems: "start",
           }}
         >
-          <h4>Native Name: {countriesInfo[0].name}</h4>
-          <h4>Population: {countriesInfo[0].population}</h4>
-          <h4>Region: {countriesInfo[0].region}</h4>
-          <h4>Sub Region: {countriesInfo[0].subregion}</h4>
-          <h4>Capital: {countriesInfo[0].capital}</h4>
+          <h4>Native Name: {location.state.country}</h4>
+          <h4>Population: {location.state.population}</h4>
+          <h4>Region: {location.state.region}</h4>
+          <h4>Sub Region: {location.state.subregion}</h4>
+          <h4>Capital: {location.state.capital}</h4>
         </Box>
         <Box
           sx={{
@@ -70,7 +72,9 @@ const InfoSection = ({ countriesInfo, country }) => {
             alignItems: "start",
           }}
         ></Box>
-        <BorderCountryButtons countriesInfo={countriesInfo} country={country} />
+        {location.state.borders && (
+          <BorderCountryButtons countriesBorders={location.state.borders} />
+        )}
       </Grid>
     </Grid>
   );

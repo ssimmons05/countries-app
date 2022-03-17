@@ -6,11 +6,32 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const InfoCard = ({ country, image, region, population, capital, id }) => {
+const InfoCard = ({
+  country,
+  image,
+  region,
+  population,
+  capital,
+  borders,
+  subregion,
+  id,
+}) => {
   return (
     <Link
-      to={`/details?country=${country}`}
-      // sx={{ textDecoration: "typography.a" }}
+      to={{
+        pathname: "/details",
+        search: `?country=${country}`,
+        state: {
+          country,
+          image,
+          region,
+          population,
+          capital,
+          borders,
+          subregion,
+          id,
+        },
+      }}
     >
       <Card
         sx={{
@@ -34,13 +55,23 @@ const InfoCard = ({ country, image, region, population, capital, id }) => {
             <Typography gutterBottom variant="h5" component="div">
               {country}
             </Typography>
-            <Typography variant="body2" color="lightMode.text">
-              <ul sx={{ listStyleType: "none" }}>
-                <li>Region: {region}</li>
-                <li>Population: {population}</li>
-                <li>Capital: {capital}</li>
-              </ul>
-            </Typography>
+            <ul sx={{ listStyleType: "none" }}>
+              <li>
+                <Typography variant="body2" color="lightMode.text">
+                  Region: {region}
+                </Typography>
+              </li>
+              <li>
+                <Typography variant="body2" color="lightMode.text">
+                  Population: {population}
+                </Typography>
+              </li>
+              <li>
+                <Typography variant="body2" color="lightMode.text">
+                  Capital: {capital}
+                </Typography>
+              </li>
+            </ul>
           </CardContent>
         </CardActionArea>
       </Card>

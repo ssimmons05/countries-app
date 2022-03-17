@@ -34,6 +34,7 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
         population={info.population}
         capital={info.capital}
         borders={info.borders}
+        subregion={info.subregion}
       />
     ));
   };
@@ -52,6 +53,7 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
         population={info.population}
         capital={info.capital}
         borders={info.borders}
+        subregion={info.subregion}
       />
     ));
   };
@@ -71,6 +73,7 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
         population={info.population}
         capital={info.capital}
         borders={info.borders}
+        subregion={info.subregion}
       />
     ));
   };
