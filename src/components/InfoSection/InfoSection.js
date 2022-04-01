@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BorderCountryButtons from "../BorderCountryButtons/BorderCountryButtons";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useLocation } from "react-router-dom";
 
-const InfoSection = () => {
+const InfoSection = ({ countriesInfo, setCountriesInfo }) => {
   let location = useLocation();
-  console.log(location);
+  console.log(location.search);
+
+  let params = new URLSearchParams(document.location.search);
+  let country = params.get("country");
+  console.log(country);
+
+  function getData() {
+    fetch(`https://restcountries.com/v3.1/name/${country}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCountriesInfo(data);
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  console.log(countriesInfo);
 
   return (
     <Grid
@@ -73,7 +91,11 @@ const InfoSection = () => {
           }}
         ></Box>
         {location.state.borders && (
-          <BorderCountryButtons countriesBorders={location.state.borders} />
+          <BorderCountryButtons
+            countriesInfo={countriesInfo}
+            countriesBorders={location.state.borders}
+            setCountriesInfo={setCountriesInfo}
+          />
         )}
       </Grid>
     </Grid>

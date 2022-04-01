@@ -12,7 +12,6 @@ const FilterDropdown = ({ countriesInfo, setRegionChoice, regionChoice }) => {
   };
   const handleClose = (event) => {
     setAnchorEl(null);
-
     setRegionChoice(event.target.getAttribute("name"));
   };
 

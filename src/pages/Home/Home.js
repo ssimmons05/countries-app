@@ -35,6 +35,7 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
         capital={info.capital}
         borders={info.borders}
         subregion={info.subregion}
+        countriesInfo={countriesInfo}
       />
     ));
   };

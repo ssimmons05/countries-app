@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import Home from "./pages/Home/Home.js";
 import DetailsPage from "./pages/DetailsPage/DetailsPage.js";
 import { Route, Switch } from "react-router-dom";
 import Error from "./pages/ErrorPage/Error.js";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { NoEncryption } from "@mui/icons-material";
+
+export const CountriesInfoContext = createContext();
 
 const App = () => {
   const [countriesInfo, setCountriesInfo] = useState([]);
@@ -21,29 +21,30 @@ const App = () => {
     },
   });
 
-  console.log(countriesInfo);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Switch>
-        <Route exact path="/">
-          <Home
-            setCountriesInfo={setCountriesInfo}
-            countriesInfo={countriesInfo}
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
-          />
-        </Route>
-        <Route exact path="/:country">
-          <DetailsPage
-            countriesInfo={countriesInfo}
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
-          />
-        </Route>
-        <Route component={Error} />
-      </Switch>
+      <CountriesInfoContext.Provider value={countriesInfo}>
+        <Switch>
+          <Route exact path="/">
+            <Home
+              setCountriesInfo={setCountriesInfo}
+              countriesInfo={countriesInfo}
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
+            />
+          </Route>
+          <Route exact path="/:country">
+            <DetailsPage
+              setCountriesInfo={setCountriesInfo}
+              countriesInfo={countriesInfo}
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
+            />
+          </Route>
+          <Route component={Error} />
+        </Switch>
+      </CountriesInfoContext.Provider>
     </ThemeProvider>
   );
 };
