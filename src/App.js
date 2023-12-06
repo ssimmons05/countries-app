@@ -34,7 +34,7 @@ const App = () => {
               setDarkMode={setDarkMode}
             />
           </Route>
-          <Route exact path="/:country">
+          <Route exact path="/details">
             <DetailsPage
               setCountriesInfo={setCountriesInfo}
               countriesInfo={countriesInfo}

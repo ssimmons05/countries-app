@@ -3,23 +3,24 @@ import Button from "@mui/material/Button";
 import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-import { CountriesInfoContext } from "../../App";
+// import { CountriesInfoContext } from "../../App";
 
 const BorderCountryButtons = ({ countriesInfo, countriesBorders }) => {
   console.log(countriesBorders, countriesInfo);
 
-  const [borderCountry, setBorderCountry] = useState("");
+  // const [borderCountry, setBorderCountry] = useState("");
 
-  const handleClick = (event, countriesInfo) => {
-    const borderValue = event.target.innerText;
-    console.log(borderValue.toLowerCase(), countriesInfo);
+  // const handleClick = (event, countriesInfo) => {
+  //   const borderValue = event.target.innerText;
+  //   console.log(borderValue.toLowerCase(), countriesInfo);
 
-    setBorderCountry(
-      countriesInfo.filter((info) =>
-        info.name.toLowerCase().includes(borderValue.toLowerCase())
-      )
-    );
-  };
+  //   setBorderCountry(
+  //     countriesInfo.filter((info) =>
+  //       info.borders.toLowerCase().includes(borderValue.toLowerCase())
+  //     )
+  //   );
+  // };
+  // console.log(borderCountry);
 
   // const searchCountries = (borderValue) => {
   //   countriesInfo.filter((info) =>
@@ -28,38 +29,32 @@ const BorderCountryButtons = ({ countriesInfo, countriesBorders }) => {
   // };
 
   return (
-    <CountriesInfoContext.Consumer>
-      {(value) => (
-        <Grid container marginTop="-30px">
-          <Box>
-            <h4
-              display="inline"
-              sx={{ display: "inline", padding: "0, 5px, 0 , 0" }}
+    <Grid container marginTop="-30px">
+      <Box>
+        <h4
+          display="inline"
+          sx={{ display: "inline", padding: "0, 5px, 0 , 0" }}
+        >
+          Border Countries:{" "}
+        </h4>
+      </Box>
+      {countriesBorders.map((border) => (
+        <Box
+          key={border}
+          sx={{ position: "relative", padding: "15px 0 0 10px" }}
+        >
+          <Link to={`/details?alpha/${border}`}>
+            <Button
+              value={border}
+              // onClick={handleClick}
+              variant="contained"
             >
-              Border Countries:{" "}
-            </h4>
-          </Box>
-          {countriesBorders.map((border) => {
-            return (
-              <Box
-                key={border}
-                sx={{ position: "relative", padding: "15px 0 0 10px" }}
-              >
-                <Link to={`/details?country=${borderCountry}`}>
-                  <Button
-                    value={border}
-                    onClick={handleClick}
-                    variant="contained"
-                  >
-                    {border}
-                  </Button>
-                </Link>
-              </Box>
-            );
-          })}
-        </Grid>
-      )}
-    </CountriesInfoContext.Consumer>
+              {border}
+            </Button>
+          </Link>
+        </Box>
+      ))}
+    </Grid>
   );
 };
 

@@ -1,28 +1,29 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import BorderCountryButtons from "../BorderCountryButtons/BorderCountryButtons";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useLocation } from "react-router-dom";
 
 const InfoSection = ({ countriesInfo, setCountriesInfo }) => {
-  let location = useLocation();
-  console.log(location.search);
+  const location = useLocation();
+  console.log(location);
+  console.log(countriesInfo);
 
-  let params = new URLSearchParams(document.location.search);
-  let country = params.get("country");
+  const params = new URLSearchParams(document.location.search);
+  const country = params.get("country");
   console.log(country);
 
-  function getData() {
-    fetch(`https://restcountries.com/v3.1/name/${country}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCountriesInfo(data);
-      });
-  }
+  // function getData() {
+  //   fetch(`https://restcountries.com/v3.1/name/${country}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setCountriesInfo(data);
+  //     });
+  // }
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   console.log(countriesInfo);
 
