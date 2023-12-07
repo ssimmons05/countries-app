@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/countries-app/static/js/main.afdbf83c.js",
+    "index.html": "/countries-app/index.html",
+    "main.afdbf83c.js.map": "/countries-app/static/js/main.afdbf83c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.afdbf83c.js"
+  ]
+}
