@@ -20,7 +20,7 @@ const Home = ({ setCountriesInfo, countriesInfo, darkMode, setDarkMode }) => {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
   console.log(value);
 
   const displayAll = () => {
